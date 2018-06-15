@@ -1,0 +1,4 @@
+worker-id: 24e2b7d0-fd92-4e14-9a8b-bdb2d620b102
+logs.users: []
+logs.groups: []
+topology.submitter.user: ben
