@@ -54,11 +54,14 @@ public class RandomSentenceSpout extends BaseRichSpout {
         this.random = new Random();
     }
 
+    /**
+     * 相当于放在 while(true)死循环里面
+     */
     @Override
     public void nextTuple() {
         String sentence = sentences[this.random.nextInt(sentences.length)];
         this.collector.emit(new Values(sentence));
-        Utils.sleep(1000);
+        Utils.sleep(5000);
     }
 
     @Override

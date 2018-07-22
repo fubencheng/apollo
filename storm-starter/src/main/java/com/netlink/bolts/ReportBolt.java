@@ -49,7 +49,7 @@ public class ReportBolt extends BaseRichBolt {
 
     }
 
-    public void displayWordCount() {
+    private void displayWordCount() {
         System.out.println("------->WORD COUNTS<-------");
         List<String> words = new ArrayList<>();
         words.addAll(this.counts.keySet());

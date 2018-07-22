@@ -13,6 +13,7 @@
  */
 package com.netlink.bolts;
 
+import com.google.common.base.Splitter;
 import org.apache.storm.task.OutputCollector;
 import org.apache.storm.task.TopologyContext;
 import org.apache.storm.topology.OutputFieldsDeclarer;
@@ -21,6 +22,7 @@ import org.apache.storm.tuple.Fields;
 import org.apache.storm.tuple.Tuple;
 import org.apache.storm.tuple.Values;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -41,7 +43,7 @@ public class SplitSentenceBolt extends BaseRichBolt {
     @Override
     public void execute(Tuple tuple) {
         String sentence = tuple.getStringByField("sentence");
-        String[] words = sentence.split(" ");
+        List<String> words = Splitter.on(" ").splitToList(sentence);
         for (String word : words){
             outputCollector.emit(new Values(word));
         }
